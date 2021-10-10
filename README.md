@@ -1,6 +1,8 @@
-# Website & Mobile starter project
+Regular expression validator app
 
-This project contains source code and supporting files for the serverless application that you created in the AWS Lambda console. You can update your application at any time by committing and pushing changes to your AWS CodeCommit or GitHub repository.
+# Intro
+
+The “Regular Expression Validator” is a REST API that accepts a numeric code as input, and returns the validation of that code using a regular expression.
 
 This project includes the following files and folders:
 
@@ -22,8 +24,6 @@ The sample application creates a RESTful API that takes HTTP requests and invoke
 
 **To use the sample API**
 
-1. Choose your application from the [**Applications page**](https://console.aws.amazon.com/lambda/home#/applications) in the Lambda console. (Make sure you're in the right region)
-1. Copy the URL that's listed under **API endpoint**.
 1. At the command line, use cURL to send POST requests to the application endpoint.
 
         $ ENDPOINT=<paste-your-endpoint-here>
@@ -32,17 +32,6 @@ The sample application creates a RESTful API that takes HTTP requests and invoke
         $ curl -d '{"id":"2234ABCD", "name":"My other item"}' -H "Content-Type: application/json" -X POST $ENDPOINT
         {"id":"2234ABCD","name":"My other item"}
 
-1. Send a GET request to the endpoint to get a list of items.
-
-        $ curl $ENDPOINT
-        [{"id":"1234ABCD","name":"My item"},{"id":"2234ABCD","name":"My other item"}]
-
-1. Send a GET request with the item ID to get a single item.
-
-        $ curl $ENDPOINT/1234ABCD
-        {"id":"1234ABCD","name":"My item"}
-
-To view the application's API, functions, and table, use the links in the **Resources** section of the application overview in the Lambda console.
 
 ## Add a resource to your application
 
