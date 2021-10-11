@@ -1,0 +1,362 @@
+{
+  "version": "9.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CdkStack.template.json"
+      },
+      "metadata": {
+        "/CdkStack": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "The API @aws-cdk/core.ConstructNode.applyAspect is deprecated: Use \"Aspects.of(construct).add(aspect)\" instead. This API will be removed in the next major release",
+            "trace": [
+              "Annotations.addMessage (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/annotations.ts:92:25)",
+              "Annotations.addWarning (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/annotations.ts:31:10)",
+              "Annotations.addDeprecation (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/annotations.ts:82:10)",
+              "ConstructNode.applyAspect (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/construct-compat.ts:471:31)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:13:12)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/AppId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppId",
+            "trace": [
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:11:9)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/validateRegex/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "validateRegexServiceRole3482DA22",
+            "trace": [
+              "new Role (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-lambda/lib/function.ts:552:31)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:21:39)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/validateRegex/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "validateRegexD8DC30EF",
+            "trace": [
+              "new Function (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-lambda/lib/function.ts:614:35)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:21:39)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiCF2706A6",
+            "trace": [
+              "new RestApi (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:694:22)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:30:21)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiDeployment3BF8AA916891980a46de37150ffa0a674e387adf",
+            "trace": [
+              "new Deployment (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/deployment.ts:75:21)",
+              "RestApi.configureDeployment (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:510:32)",
+              "new RestApi (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:714:10)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:30:21)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiDeploymentStageprodA626EFFC",
+            "trace": [
+              "new Stage (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/stage.ts:240:22)",
+              "RestApi.configureDeployment (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:520:30)",
+              "new RestApi (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:714:10)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:30:21)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiEndpoint5118C609",
+            "trace": [
+              "RestApi.configureDeployment (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:525:7)",
+              "new RestApi (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:714:10)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:30:21)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Default/POST/ApiPermission.CdkStackServerlessRestApi595C3DAB.POST..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiPOSTApiPermissionCdkStackServerlessRestApi595C3DABPOSTCDC3572D",
+            "trace": [
+              "Function.addPermission (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:245:5)",
+              "LambdaIntegration.bind (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:63:18)",
+              "new Method (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "RootResource.addMethod (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:31:18)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Default/POST/ApiPermission.Test.CdkStackServerlessRestApi595C3DAB.POST..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiPOSTApiPermissionTestCdkStackServerlessRestApi595C3DABPOSTC588CB76",
+            "trace": [
+              "Function.addPermission (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:245:5)",
+              "LambdaIntegration.bind (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/integrations/lambda.ts:71:20)",
+              "new Method (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:197:36)",
+              "RootResource.addMethod (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:31:18)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/ServerlessRestApi/Default/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServerlessRestApiPOST639A79DC",
+            "trace": [
+              "new Method (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/method.ts:215:22)",
+              "RootResource.addMethod (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/aws-apigateway/lib/resource.ts:187:12)",
+              "new CdkStack (/Users/drew/dev/BrookSource/RegExpValidator/cdk/lib/cdk-stack.ts:31:18)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/bin/cdk.ts:8:15)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Module.m._compile (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "main (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1158:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)",
+              "Module.load (internal/modules/cjs/loader.js:1002:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:901:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)",
+              "internal/main/run_main_module.js:18:47"
+            ]
+          }
+        ],
+        "/CdkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:418:26)",
+              "process.emit (events.js:311:20)",
+              "process.EventEmitter.emit (domain.js:482:12)",
+              "process.emit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/source-map-support/source-map-support.js:516:21)",
+              "process.topLevelDomainCallback (domain.js:137:15)"
+            ]
+          }
+        ],
+        "/CdkStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:60:27)",
+              "/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:418:26)",
+              "process.emit (events.js:311:20)",
+              "process.EventEmitter.emit (domain.js:482:12)",
+              "process.emit (/Users/drew/dev/BrookSource/RegExpValidator/cdk/node_modules/source-map-support/source-map-support.js:516:21)",
+              "process.topLevelDomainCallback (domain.js:137:15)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

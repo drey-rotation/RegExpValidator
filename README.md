@@ -165,8 +165,7 @@ Although functions in `template.yaml` are specified to have deployment package i
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-my-application$ sam local invoke putItem12345678 --event events/event-post-item.json --env-vars env.json
-my-application$ sam local invoke getAllItems87654321 --event events/event-get-all-items.json --env-vars env.json
+my-application$ sam local invoke validateRegexD8DC30EF --event events/event-validate-regex.json --env-vars env.json
 ```
 
 The AWS SAM CLI can also emulate your application's API. Use the `sam local start-api` command to run the API locally on port 3000.
@@ -194,3 +193,4 @@ my-application$ npm run test
 For an introduction to the AWS CDK specification, see the [AWS CDK Developer Guide](https://docs.aws.amazon.com/cdk/latest/guide/home.html).
 
 Next, you can use the AWS Serverless Application Repository to deploy ready-to-use apps that go beyond Hello World samples and learn how authors developed their applications. For more information, see the [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/) and the [AWS Serverless Application Repository Developer Guide](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/what-is-serverlessrepo.html).
+

@@ -1,0 +1,322 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "CdkStack": {
+        "id": "CdkStack",
+        "path": "CdkStack",
+        "children": {
+          "AppId": {
+            "id": "AppId",
+            "path": "CdkStack/AppId"
+          },
+          "ArtifactBucket": {
+            "id": "ArtifactBucket",
+            "path": "CdkStack/ArtifactBucket"
+          },
+          "validateRegex": {
+            "id": "validateRegex",
+            "path": "CdkStack/validateRegex",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "CdkStack/validateRegex/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CdkStack/validateRegex/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "CdkStack/validateRegex/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "mockBucket",
+                      "s3Key": "undefined/function-code.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "validateRegexServiceRole3482DA22",
+                        "Arn"
+                      ]
+                    },
+                    "description": "accepts a numeric code as input, and returns the validation of that code using a regular expression.",
+                    "environment": {
+                      "variables": {
+                        "SAMPLE_TABLE": "none"
+                      }
+                    },
+                    "handler": "src/handlers/validate-regex.validateRegexHandler",
+                    "runtime": "nodejs14.x",
+                    "timeout": 60
+                  }
+                }
+              }
+            }
+          },
+          "ServerlessRestApi": {
+            "id": "ServerlessRestApi",
+            "path": "CdkStack/ServerlessRestApi",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CdkStack/ServerlessRestApi/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                  "aws:cdk:cloudformation:props": {
+                    "name": "ServerlessRestApi"
+                  }
+                }
+              },
+              "Deployment": {
+                "id": "Deployment",
+                "path": "CdkStack/ServerlessRestApi/Deployment",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CdkStack/ServerlessRestApi/Deployment/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                      "aws:cdk:cloudformation:props": {
+                        "restApiId": {
+                          "Ref": "ServerlessRestApiCF2706A6"
+                        },
+                        "description": "Automatically created by the RestApi construct"
+                      }
+                    }
+                  }
+                }
+              },
+              "DeploymentStage.prod": {
+                "id": "DeploymentStage.prod",
+                "path": "CdkStack/ServerlessRestApi/DeploymentStage.prod",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CdkStack/ServerlessRestApi/DeploymentStage.prod/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "restApiId": {
+                          "Ref": "ServerlessRestApiCF2706A6"
+                        },
+                        "deploymentId": {
+                          "Ref": "ServerlessRestApiDeployment3BF8AA916891980a46de37150ffa0a674e387adf"
+                        },
+                        "stageName": "prod"
+                      }
+                    }
+                  }
+                }
+              },
+              "Endpoint": {
+                "id": "Endpoint",
+                "path": "CdkStack/ServerlessRestApi/Endpoint"
+              },
+              "Default": {
+                "id": "Default",
+                "path": "CdkStack/ServerlessRestApi/Default",
+                "children": {
+                  "POST": {
+                    "id": "POST",
+                    "path": "CdkStack/ServerlessRestApi/Default/POST",
+                    "children": {
+                      "ApiPermission.CdkStackServerlessRestApi595C3DAB.POST..": {
+                        "id": "ApiPermission.CdkStackServerlessRestApi595C3DAB.POST..",
+                        "path": "CdkStack/ServerlessRestApi/Default/POST/ApiPermission.CdkStackServerlessRestApi595C3DAB.POST..",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunction",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "validateRegexD8DC30EF",
+                                "Arn"
+                              ]
+                            },
+                            "principal": "apigateway.amazonaws.com",
+                            "sourceArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":execute-api:",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "ServerlessRestApiCF2706A6"
+                                  },
+                                  "/",
+                                  {
+                                    "Ref": "ServerlessRestApiDeploymentStageprodA626EFFC"
+                                  },
+                                  "/POST/"
+                                ]
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "ApiPermission.Test.CdkStackServerlessRestApi595C3DAB.POST..": {
+                        "id": "ApiPermission.Test.CdkStackServerlessRestApi595C3DAB.POST..",
+                        "path": "CdkStack/ServerlessRestApi/Default/POST/ApiPermission.Test.CdkStackServerlessRestApi595C3DAB.POST..",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunction",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "validateRegexD8DC30EF",
+                                "Arn"
+                              ]
+                            },
+                            "principal": "apigateway.amazonaws.com",
+                            "sourceArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":execute-api:",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "ServerlessRestApiCF2706A6"
+                                  },
+                                  "/test-invoke-stage/POST/"
+                                ]
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "CdkStack/ServerlessRestApi/Default/POST/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                          "aws:cdk:cloudformation:props": {
+                            "httpMethod": "POST",
+                            "resourceId": {
+                              "Fn::GetAtt": [
+                                "ServerlessRestApiCF2706A6",
+                                "RootResourceId"
+                              ]
+                            },
+                            "restApiId": {
+                              "Ref": "ServerlessRestApiCF2706A6"
+                            },
+                            "authorizationType": "NONE",
+                            "integration": {
+                              "type": "AWS_PROXY",
+                              "uri": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":apigateway:",
+                                    {
+                                      "Ref": "AWS::Region"
+                                    },
+                                    ":lambda:path/2015-03-31/functions/",
+                                    {
+                                      "Fn::GetAtt": [
+                                        "validateRegexD8DC30EF",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "/invocations"
+                                  ]
+                                ]
+                              },
+                              "integrationHttpMethod": "POST"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "CdkStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "CdkStack/CDKMetadata/Default"
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "CdkStack/CDKMetadata/Condition"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

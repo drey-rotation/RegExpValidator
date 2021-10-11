@@ -1,0 +1,479 @@
+{
+  "Description": "Website & Mobile starter project",
+  "Parameters": {
+    "AppId": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "validateRegexServiceRole3482DA22": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ],
+        "PermissionsBoundary": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":iam::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":policy/",
+              {
+                "Ref": "AWS::StackName"
+              },
+              "-",
+              {
+                "Ref": "AWS::Region"
+              },
+              "-PermissionsBoundary"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/validateRegex/ServiceRole/Resource"
+      }
+    },
+    "validateRegexD8DC30EF": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "mockBucket",
+          "S3Key": "undefined/function-code.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "validateRegexServiceRole3482DA22",
+            "Arn"
+          ]
+        },
+        "Description": "accepts a numeric code as input, and returns the validation of that code using a regular expression.",
+        "Environment": {
+          "Variables": {
+            "SAMPLE_TABLE": "none"
+          }
+        },
+        "Handler": "src/handlers/validate-regex.validateRegexHandler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 60
+      },
+      "DependsOn": [
+        "validateRegexServiceRole3482DA22"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/validateRegex/Resource"
+      }
+    },
+    "ServerlessRestApiCF2706A6": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "ServerlessRestApi"
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/Resource"
+      }
+    },
+    "ServerlessRestApiDeployment3BF8AA916891980a46de37150ffa0a674e387adf": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "ServerlessRestApiCF2706A6"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "ServerlessRestApiPOST639A79DC"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/Deployment/Resource"
+      }
+    },
+    "ServerlessRestApiDeploymentStageprodA626EFFC": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "ServerlessRestApiCF2706A6"
+        },
+        "DeploymentId": {
+          "Ref": "ServerlessRestApiDeployment3BF8AA916891980a46de37150ffa0a674e387adf"
+        },
+        "StageName": "prod"
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/DeploymentStage.prod/Resource"
+      }
+    },
+    "ServerlessRestApiPOSTApiPermissionCdkStackServerlessRestApi595C3DABPOSTCDC3572D": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "validateRegexD8DC30EF",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ServerlessRestApiCF2706A6"
+              },
+              "/",
+              {
+                "Ref": "ServerlessRestApiDeploymentStageprodA626EFFC"
+              },
+              "/POST/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/Default/POST/ApiPermission.CdkStackServerlessRestApi595C3DAB.POST.."
+      }
+    },
+    "ServerlessRestApiPOSTApiPermissionTestCdkStackServerlessRestApi595C3DABPOSTC588CB76": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "validateRegexD8DC30EF",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ServerlessRestApiCF2706A6"
+              },
+              "/test-invoke-stage/POST/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/Default/POST/ApiPermission.Test.CdkStackServerlessRestApi595C3DAB.POST.."
+      }
+    },
+    "ServerlessRestApiPOST639A79DC": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "ResourceId": {
+          "Fn::GetAtt": [
+            "ServerlessRestApiCF2706A6",
+            "RootResourceId"
+          ]
+        },
+        "RestApiId": {
+          "Ref": "ServerlessRestApiCF2706A6"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "validateRegexD8DC30EF",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/ServerlessRestApi/Default/POST/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Modules": "aws-cdk=1.89.0,@aws-cdk/assets=1.89.0,@aws-cdk/aws-apigateway=1.89.0,@aws-cdk/aws-applicationautoscaling=1.89.0,@aws-cdk/aws-autoscaling-common=1.89.0,@aws-cdk/aws-cloudwatch=1.89.0,@aws-cdk/aws-codeguruprofiler=1.89.0,@aws-cdk/aws-ec2=1.89.0,@aws-cdk/aws-ecr=1.89.0,@aws-cdk/aws-ecr-assets=1.89.0,@aws-cdk/aws-events=1.89.0,@aws-cdk/aws-iam=1.89.0,@aws-cdk/aws-kms=1.89.0,@aws-cdk/aws-lambda=1.89.0,@aws-cdk/aws-logs=1.89.0,@aws-cdk/aws-s3=1.89.0,@aws-cdk/aws-s3-assets=1.89.0,@aws-cdk/aws-sqs=1.89.0,@aws-cdk/aws-ssm=1.89.0,@aws-cdk/cloud-assembly-schema=1.89.0,@aws-cdk/core=1.89.0,@aws-cdk/cx-api=1.89.0,@aws-cdk/region-info=1.89.0,jsii-runtime=node.js/v12.16.1"
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "ServerlessRestApiEndpoint5118C609": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "ServerlessRestApiCF2706A6"
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "ServerlessRestApiDeploymentStageprodA626EFFC"
+            },
+            "/"
+          ]
+        ]
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
