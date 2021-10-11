@@ -17,7 +17,7 @@ exports.validateRegexHandler = async (event) => {
 
     try {
         // Get numericCode from the body of the request
-        const { numericCode } = JSON.parse(body);
+        const { numericCode } = body; 
         var regex = /^\d+$/;
         var result = regex.test(numericCode);
     } catch (e) {
