@@ -22,7 +22,7 @@ exports.validateRegexHandler = async (event) => {
 
     const response = {
         statusCode: 200,
-        body: JSON.stringify({ result: result, error: false }),
+        result: JSON.stringify({ result: result, error: false }),
     };
 
     return response;
