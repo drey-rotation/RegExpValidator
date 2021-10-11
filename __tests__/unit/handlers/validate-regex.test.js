@@ -8,7 +8,7 @@ describe('Test validateRegex', () => {
     it('should test valid regex', async () => {
         const event = {
             httpMethod: 'POST',
-            body: {numericCode:"43243445545665766787683"},
+            body: "{\"numericCode\": \"43243445545665766787683\"}" 
         };
 
         // Invoke function
@@ -26,7 +26,7 @@ describe('Test validateRegex', () => {
     it('should test valid and invalid regex', async () => {    
         const event = {
             httpMethod: 'POST',
-            body: { numericCode: "432434455456i65766787683" },
+            body: "{\"numericCode\": \"432434455456i65766787683\"}"
         };
         const result = await lambda.validateRegexHandler(event);
         const expectedResult = {
