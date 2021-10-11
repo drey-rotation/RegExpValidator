@@ -1,29 +1,12 @@
-Regular expression validator app
+## Regular expression validator app
 
-# Intro
-
-The “Regular Expression Validator” is a REST API that accepts a numeric code and regular expression as input. If the input is validated by the expression, return true. Return false otherwise.
-
-  - step 1: validate a non-numeric code using a regular expression. 
-  - step 2: validate a numeric code using a regular expression.
-    
-    *- given an input and a regular expression:
-    *- return true if input is validated, false otherwise
-
-Validates whether the value of an associated input control matches the pattern specified by a regular expression.
-
-You are given a numeric code of various lengths. The goal of the function is to check if the code begins with a 1, 2, or 3. If the number begins with either one of those numbers, return true. Return false otherwise.
-
-My input number is an int. But the input number must be in a range from -2055 to 2055 and I want to check this by using regular expression.
-
-
-
+The “Regular Expression Validator” is a REST API that accepts a numeric code (i.e. arbitrary number of number digits like "123345") as input and returns true if the input is a valid numeric code. Return false otherwise.
 # To install and use
-The App is available at this URL: https://jksfjklfsjklfsjksfjklsfdajklsdf.
+    The App consists of an API Gateway API with one root path. It's available at this URL: https://tfar60xxu1.execute-api.us-west-2.amazonaws.com/prod/
 
-Just enter the info in the form, click “go” and you will get the result.
+    Call using Curl:
 
-	UI OF THE APP
+	curl -H https://tfar60xxu1.execute-api.us-west-2.amazonaws.com/prod/ -d "{\"numericCode\":\"123\"}"
 
 # Resources created
 The app was developed using AWS SAM (Cloudformation), and NodeJS. The resources created by this stack include:
@@ -35,8 +18,6 @@ The app was developed using AWS SAM (Cloudformation), and NodeJS. The resources 
 Addition Resources Created or used in this project:
 
 	- (optional) CI/CD Pipeline for building and deploying code to a dev and production environments.
-
-
 
 
 Next Steps
