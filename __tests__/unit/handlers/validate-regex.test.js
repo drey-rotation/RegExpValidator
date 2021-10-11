@@ -19,7 +19,7 @@ describe('Test validateRegex', () => {
             body: {result: true, error: false}, 
         };
         // Compare the result with the expected result
-        expect(JSON.parse(res.result).result).toEqual(true);
+        expect(JSON.parse(res.body).result).toEqual(true);
     });
 
 
@@ -35,7 +35,7 @@ describe('Test validateRegex', () => {
             body: { result: false },
         };
         // Compare the result with the expected result
-        expect( JSON.parse(res.result).result).toEqual(false);
+        expect( JSON.parse(res.body).result).toEqual(false);
     });
 
 });
